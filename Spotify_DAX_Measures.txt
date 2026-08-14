@@ -1,0 +1,31 @@
+Spotify_DAX_Measures - Power BI
+
+1. Album Type Count = DISTINCTCOUNT('Top-50-world'[album_type])
+2. Albums Count = CALCULATE(COUNTROWS('Top-50-world'),'Top-50-world'[album_type] = "album")
+3. Avg Duration Minutes = AVERAGE('Top-50-world'[duration_ms]) / 60000
+4. Avg Duration per Year = AVERAGE('Top-50-world'[duration_ms]) / 60000
+5. Avg Popularity = AVERAGE('Top-50-world'[popularity])
+6. Avg Popularity Explicit =  CALCULATE( AVERAGE('Top-50-world'[popularity]), 'Top-50-world'[is_explicit] = TRUE)
+7. Avg Popularity NonExplicit =  CALCULATE( AVERAGE('Top-50-world'[popularity]), 'Top-50-world'[is_explicit] = FALSE() 
+8. Avg Popularity per Artist = AVERAGE('Top-50-world'[popularity])
+9. Avg Popularity per Year = AVERAGE('Top-50-world'[popularity])
+10. Avg Position = AVERAGE('Top-50-world'[position])
+11. Avg Tracks per Album = AVERAGE('Top-50-world'[total_tracks])
+12. Distinct Artists =   DISTINCTCOUNT('Top-50-world'[Artist])
+13. Distinct Songs = DISTINCTCOUNT('Top-50-world'[Song])
+14. Distinct Songs per Artist =  DISTINCTCOUNT('Top-50-world'[Song])
+15. Explicit Songs =  CALCULATE( COUNTROWS('Top-50-world'),'Top-50-world'[is_explicit] = TRUE() )
+16. Max Duration Minutes =   MAX('Top-50-world'[duration_ms]) / 60000
+17. Max Popularity =  MAX('Top-50-world'[popularity])
+18. Min Duration Minutes =  MIN('Top-50-world'[duration_ms]) / 60000
+19. Min Popularity =  MIN('Top-50-world'[popularity])
+20. Non-Explicit Songs =  CALCULATE(COUNTROWS('Top-50-world'),'Top-50-world'[is_explicit] = FALSE())
+21. Pct Explicit per Year = DIVIDE(  CALCULATE( COUNTROWS('Top-50-world'), 'Top-50-world'[is_explicit] = TRUE() ), [Songs per Year], 0 )
+22. Pct Explicit Songs =  DIVIDE( [Explicit Songs], [Total Songs], 0 )
+23. Position 1 Artists =  CALCULATE( DISTINCTCOUNT('Top-50-world'[Artist]), 'Top-50-world'[position] = 1)
+24. Position 1 Songs =  CALCULATE( COUNTROWS('Top-50-world'), 'Top-50-world'[position] = 1)
+25. Position1 Hits per Artist = CALCULATE( COUNTROWS('Top-50-world'), 'Top-50-world'[position] = 1  )
+26. Singles Count =  CALCULATE( COUNTROWS('Top-50-world'), 'Top-50-world'[album_type] = "single" )
+27. Songs per Artist = COUNTROWS('Top-50-world')
+28. Songs per Year =  COUNTROWS('Top-50-world')
+29. Total Songs =  COUNTROWS('Top-50-world')
